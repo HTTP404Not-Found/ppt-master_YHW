@@ -1,0 +1,32 @@
+{
+  "id": "light-cream",
+  "kind": "light",
+  "version": "1.0.0",
+  "description": "Paper-textured cream — warm parchment canvas, deep-brown text, burnt-sienna accents. Use for editorial long-reads, vintage-styled reports, sustainability / heritage storytelling.",
+  "tokens": {
+    "bg-canvas":      "#F5EFE3",
+    "bg-surface":     "#EAE2D0",
+    "fill-card":      "#E0D5BD",
+    "text-primary":   "#3A2E1F",
+    "text-secondary": "#5A4A35",
+    "text-muted":     "#6E5C44",
+    "accent":         "#A8480F",
+    "accent-warm":    "#8A5410",
+    "stroke-frame":   "#3A2E1F",
+    "stroke-divider": "#C8B89A"
+  },
+  "ratios": {
+    "text-primary/bg-canvas":   11.53,
+    "text-secondary/bg-canvas":  7.44,
+    "text-muted/bg-canvas":      5.60,
+    "accent/bg-canvas":          5.10,
+    "accent-warm/bg-canvas":     5.46,
+    "stroke-frame/bg-canvas":   11.53,
+    "stroke-divider/bg-canvas":  1.70
+  },
+  "wcag": {
+    "min_text_ratio":   4.5,
+    "min_stroke_ratio": 3.0,
+    "verified_at":      "2026-06-13"
+  }
+}

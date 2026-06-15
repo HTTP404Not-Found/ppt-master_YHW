@@ -1,0 +1,2805 @@
+{
+  "output": "C:\\ppt-master-main\\ppt-master-main\\.opencode\\tmp\\contrast_verify\\test_output_svg.pptx",
+  "slide_count": 14,
+  "theme": {},
+  "slides": [
+    {
+      "slide": "01_cover",
+      "file": "01_cover.svg",
+      "pairs": [
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#666666",
+          "bg": "#FFFFFF",
+          "ratio": 5.74,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#999999",
+          "bg": "#FFFFFF",
+          "ratio": 2.85,
+          "severity": "error"
+        }
+      ],
+      "font_size_violations": [
+        {
+          "text": "A LECTURE · 2026",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Swiss International Typographic Style",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Müller-Brockmann · Helvetica · Univers ·",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "01 / 14",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "slide": "02_quote",
+      "file": "02_quote.svg",
+      "pairs": [
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#999999",
+          "bg": "#FFFFFF",
+          "ratio": 2.85,
+          "severity": "error"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#666666",
+          "bg": "#FFFFFF",
+          "ratio": 5.74,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        }
+      ],
+      "font_size_violations": [
+        {
+          "text": "P · 02",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Grid Systems in Graphic Design · 1981",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "02 / 14",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "slide": "03_origin",
+      "file": "03_origin.svg",
+      "pairs": [
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#999999",
+          "bg": "#FFFFFF",
+          "ratio": 2.85,
+          "severity": "error"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#666666",
+          "bg": "#FFFFFF",
+          "ratio": 5.74,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<polygon>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#E8E8E8",
+          "bg": "#FFFFFF",
+          "ratio": 1.23,
+          "severity": "error"
+        },
+        {
+          "element": "<circle>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<circle>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<tspan>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        }
+      ],
+      "font_size_violations": [
+        {
+          "text": "P · 03",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "THE SIXTY YEARS THAT MADE SWISS DESIGN P",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Akzidenz-Grotesk",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "柏林 Berthold",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "铸字行发行",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "现代意义的",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "第一款无衬线",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Basel School",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "巴塞尔设计学院",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "完成改革",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "奠定教学体系",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "理性传统建立",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Ernst Keller",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "入苏黎世",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "应用艺术学院",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "\"形式跟随内容\"",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "教学原则成型",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Müller-Brockmann",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "22 岁",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "在苏黎世",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "开设独立工作室",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "新生代登场",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Helvetica + Univers",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "同年问世",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "瑞士理性",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "凝结为字体",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "输出全球",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "而是来自字体 · 学校 · 教学三条线索半个世纪的累积。",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "03 / 14",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "slide": "04_principles",
+      "file": "04_principles.svg",
+      "pairs": [
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#999999",
+          "bg": "#FFFFFF",
+          "ratio": 2.85,
+          "severity": "error"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#666666",
+          "bg": "#FFFFFF",
+          "ratio": 5.74,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#E8E8E8",
+          "bg": "#FFFFFF",
+          "ratio": 1.23,
+          "severity": "error"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        }
+      ],
+      "font_size_violations": [
+        {
+          "text": "P · 04",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "EIGHT PRINCIPLES OF SWISS DESIGN",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "OBJECTIVITY OVER EXPRESSION",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "信息传达高于",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "设计师个人情绪。",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "MATHEMATICAL GRID",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "列、行、间距、模数",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "皆从基本单位派生。",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "ASYMMETRIC LAYOUT",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "拒绝古典对称",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "带来的中心权威。",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "SANS-SERIF TYPOGRAPHY",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Akzidenz · Helvetica",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Univers 三足鼎立。",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "FLUSH-LEFT RAGGED-RIGHT",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "字距均匀",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "阅读节奏稳定。",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "OBJECTIVE PHOTOGRAPHY",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "取代装饰性插画",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "现代摄影登场。",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "NEGATIVE SPACE AS STRUCTURE",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "空白是信息的载体",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "而非剩余。",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "REPRODUCIBLE AT SCALE",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "跨语言、跨媒介",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "跨规模复用。",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "04 / 14",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "slide": "05_figures",
+      "file": "05_figures.svg",
+      "pairs": [
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#999999",
+          "bg": "#FFFFFF",
+          "ratio": 2.85,
+          "severity": "error"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#666666",
+          "bg": "#FFFFFF",
+          "ratio": 5.74,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        }
+      ],
+      "font_size_violations": [
+        {
+          "text": "P · 05",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "EIGHT DESIGNERS WHO MADE THE SWISS STYLE",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "01",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1891 — 1968",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "苏黎世应用艺术学院",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1918 起任教",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "奠定瑞士学派",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "\"形式跟随内容\"原则",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "02",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1902 — 1965",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "网格早期实验者",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "把 De Stijl 几何",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "引入海报排版",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "桥梁式人物",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "03",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1908 — 1994",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "包豪斯学生",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "乌尔姆设计学院",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "创校校长",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "理性延伸至产品",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "04",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1914 — 1970",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "巴塞尔学派核心",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "著《Typographie》",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1967 至今为",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "字体设计圣经",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "05",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1920 — 2020",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "巴塞尔学派核心",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "海报与教学",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "的标志性人物",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "影响延续至耶鲁",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "06",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1914 — 1996",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "苏黎世学派核心",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "《Grid Systems in",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Graphic Design》作者",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "本讲下页详述",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "07",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1910 — 1980",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1957 年",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "与 Hoffmann 合作",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "设计 Helvetica",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "命名取自瑞士",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "08",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1928 — 2015",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "同年 1957",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "设计 Univers",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "21 字重",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "首次坐标系统化",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "05 / 14",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "slide": "06_brockmann",
+      "file": "06_brockmann.svg",
+      "pairs": [
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#999999",
+          "bg": "#FFFFFF",
+          "ratio": 2.85,
+          "severity": "error"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#666666",
+          "bg": "#FFFFFF",
+          "ratio": 5.74,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<circle>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<circle>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        }
+      ],
+      "font_size_violations": [
+        {
+          "text": "P · 06",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "A LIFE IN GRID · 1914 — 1996 · SEVEN MOM",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "JOSEF MÜLLER-BROCKMANN",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "瑞士平面设计师 · 教育家",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "国际主义风格",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "最有代表性的实践者与理论家",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "生于 Rapperswil",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "逝于 Unterengstringen",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "享年 82 岁",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1914",
+          "font_size": 16.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "生于瑞士拉珀斯维尔",
+          "font_size": 16.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "距苏黎世 40 公里的小镇 · St. Gallen 州",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1936",
+          "font_size": 16.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "在苏黎世开设独立工作室",
+          "font_size": 16.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "22 岁起步 · 涉足平面、展览、摄影三个方向",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1950",
+          "font_size": 16.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Tonhalle 音乐会海报系列开启",
+          "font_size": 16.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "\"Musica Viva\" · 用圆 · 弧 · 线 · 矩形抽象表达音乐结构",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1957",
+          "font_size": 16.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "任苏黎世应用艺术学院教授",
+          "font_size": 16.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "把瑞士理性带入下一代设计师的教学体系",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1958",
+          "font_size": 16.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "创办《Neue Grafik》期刊",
+          "font_size": 16.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "三语并行 · 把瑞士理念输出到国际平面设计共同体",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1981",
+          "font_size": 16.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "出版《Grid Systems in Graphic Design》",
+          "font_size": 16.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "至今仍是设计教育最权威的网格手册 · 是本讲的底本",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1996",
+          "font_size": 16.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "在 Unterengstringen 逝世",
+          "font_size": 16.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "8 月 30 日 · 享年 82 岁 · 影响持续至今",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "06 / 14",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "slide": "07_typefaces",
+      "file": "07_typefaces.svg",
+      "pairs": [
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#999999",
+          "bg": "#FFFFFF",
+          "ratio": 2.85,
+          "severity": "error"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#666666",
+          "bg": "#FFFFFF",
+          "ratio": 5.74,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        }
+      ],
+      "font_size_violations": [
+        {
+          "text": "P · 07",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "THREE TYPEFACES THAT WROTE THE SWISS STY",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "CARD · 01",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1896 · Berthold Type Foundry",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "EXTRA BOLD · 900",
+          "font_size": 10.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "第一款现代意义的",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "商业无衬线字体",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "瑞士学派早期首选",
+          "font_size": 12.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "比 Helvetica 早 61 年问世",
+          "font_size": 12.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "奠定无衬线美学全部基调",
+          "font_size": 12.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "CARD · 02",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1957 · Miedinger + Hoffmann",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "BOLD · 700 · NEUTRAL",
+          "font_size": 10.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "字面意思就是\"瑞士\"",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "中性 · 客观 · 可读至极",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "原名 Neue Haas Grotesk",
+          "font_size": 12.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "取自拉丁文 Helvetia(瑞士)",
+          "font_size": 12.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "20 世纪传播范围最广的字体",
+          "font_size": 12.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "CARD · 03",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1957 · Adrian Frutiger",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "REGULAR · 400 · LIGHT",
+          "font_size": 10.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "21 字重的二维坐标",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "字体工程的开端",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Univers 39 — 83 二维编号",
+          "font_size": 12.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "把\"家族+字重+宽度\"工程化",
+          "font_size": 12.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "现代字体家族结构的祖先",
+          "font_size": 12.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "07 / 14",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "slide": "08_grid_types",
+      "file": "08_grid_types.svg",
+      "pairs": [
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#999999",
+          "bg": "#FFFFFF",
+          "ratio": 2.85,
+          "severity": "error"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#666666",
+          "bg": "#FFFFFF",
+          "ratio": 5.74,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#E8E8E8",
+          "bg": "#FFFFFF",
+          "ratio": 1.23,
+          "severity": "error"
+        },
+        {
+          "element": "<rect>",
+          "attr": "stroke",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<rect>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<rect>",
+          "attr": "stroke",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<rect>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        }
+      ],
+      "font_size_violations": [
+        {
+          "text": "P · 08",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "FOUR GRID TYPES · MÜLLER-BROCKMANN, 1981",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "01 · 古典",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "MANUSCRIPT GRID",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "单栏满版 · 最古老的网格",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "书籍正文 · 长篇散文唯一选项",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "02 · 期刊",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "COLUMN GRID",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "多栏并列 · 列宽行高皆可计算",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "期刊 · 报纸 · 出版业的语法基础",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "03 · 海报",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "MODULAR GRID",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "横列 × 纵行的方格矩阵",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "海报 · 目录 · 平面设计的利器",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "瑞士国际主义最具识别度的网格类型",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "04 · 复合",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "HIERARCHICAL GRID",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "不规则但内部有逻辑",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "复合排版 · 杂志专题 · 网页布局",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "08 / 14",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "slide": "09_modular",
+      "file": "09_modular.svg",
+      "pairs": [
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#999999",
+          "bg": "#FFFFFF",
+          "ratio": 2.85,
+          "severity": "error"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#666666",
+          "bg": "#FFFFFF",
+          "ratio": 5.74,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<tspan>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<rect>",
+          "attr": "stroke",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<rect>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<rect>",
+          "attr": "stroke",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<rect>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#666666",
+          "bg": "#FFFFFF",
+          "ratio": 5.74,
+          "severity": "warning"
+        }
+      ],
+      "font_size_violations": [
+        {
+          "text": "P · 09",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "EVERYTHING DERIVES FROM THE BASE UNIT",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "BASE UNIT",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "所有距离的最小公因子",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "DERIVED FROM 16",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "safe margin       64 px   =  4 × 16",
+          "font_size": 15.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "column width      264 px  = 16 × 16 + 8",
+          "font_size": 15.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "column gap        32 px   =  2 × 16",
+          "font_size": 15.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "row height        96 px   =  6 × 16",
+          "font_size": 15.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "body line-height  27 px   = 1.5 × 18",
+          "font_size": 15.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "title size        32 px   =  2 × 16",
+          "font_size": 15.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "设计师不再\"画\"版面",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "而是\"建立系统并按系统落子\"",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "IMAGE 2×2",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "TEXT 1×2",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "HEADLINE 4×1",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "264",
+          "font_size": 10.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "264",
+          "font_size": 10.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "264",
+          "font_size": 10.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "264",
+          "font_size": 10.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "09 / 14",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "slide": "10_negative_space",
+      "file": "10_negative_space.svg",
+      "pairs": [
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#999999",
+          "bg": "#FFFFFF",
+          "ratio": 2.85,
+          "severity": "error"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#666666",
+          "bg": "#FFFFFF",
+          "ratio": 5.74,
+          "severity": "warning"
+        }
+      ],
+      "font_size_violations": [
+        {
+          "text": "P · 10",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "ARGUMENT · 07",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "THE SPACE BETWEEN IS THE MESSAGE",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "10 / 14",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "slide": "11_outputs",
+      "file": "11_outputs.svg",
+      "pairs": [
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#999999",
+          "bg": "#FFFFFF",
+          "ratio": 2.85,
+          "severity": "error"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#666666",
+          "bg": "#FFFFFF",
+          "ratio": 5.74,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#E8E8E8",
+          "bg": "#FFFFFF",
+          "ratio": 1.23,
+          "severity": "error"
+        }
+      ],
+      "font_size_violations": [
+        {
+          "text": "P · 11",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "1960s → · FROM SWITZERLAND TO THE GLOBAL",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "01",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "CORPORATE IDENTITY",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "把瑞士理性变成\"识别系统\"",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "产业的开端",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "IBM (Paul Rand)",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Knoll · Lufthansa",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Olivetti · Braun",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "JMB 任 IBM 顾问 · 1967 起",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "02",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "SIGNAGE SYSTEMS",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "公共空间的可读性",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "是瑞士理性的延伸",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "纽约地铁 Unimark",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "巴黎机场 Frutiger 字体",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "慕尼黑 Otl Aicher",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Vignelli 1966 纽约地铁手册",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "03",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "EDITORIAL DESIGN",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "期刊 · 杂志 · 文化出版",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "的版面语法",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Du 杂志(瑞士)",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Eye Magazine",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Domus · Wallpaper*",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "至今仍是文化出版的范本",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "04",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "DESIGN EDUCATION",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "巴塞尔 + 苏黎世",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "两条教学路径全球化",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Yale (Hofmann)",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "RISD · Cooper Union",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "东京 GS 学派",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "学生输出半世纪不绝",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "11 / 14",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "slide": "12_digital_era",
+      "file": "12_digital_era.svg",
+      "pairs": [
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#999999",
+          "bg": "#FFFFFF",
+          "ratio": 2.85,
+          "severity": "error"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#666666",
+          "bg": "#FFFFFF",
+          "ratio": 5.74,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#E8E8E8",
+          "bg": "#FFFFFF",
+          "ratio": 1.23,
+          "severity": "error"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<circle>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<circle>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<tspan>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        }
+      ],
+      "font_size_violations": [
+        {
+          "text": "P · 12",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "THE GRID ON SCREEN · 2008 — TODAY",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "2008",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "12 栏 · 960px 宽",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "第一次把网格语法",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "系统搬上 Web",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Nathan Smith 出品",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "2011",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Twitter 开源",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "把模数网格",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "民主化到全球",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "前端开发标配",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "2017",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "浏览器原生网格",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "所有主流浏览器支持",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "模数网格首次成为",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Web 平台基础设施",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "2020s",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Material · HIG · FAST",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "大企业 VI",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "在屏幕上的延续",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "从规则到组件库",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "从印刷海报到 CSS Grid · 介质变换但模数 · 列 · 留白 · 数学比",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "12 / 14",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "slide": "13_brands",
+      "file": "13_brands.svg",
+      "pairs": [
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#999999",
+          "bg": "#FFFFFF",
+          "ratio": 2.85,
+          "severity": "error"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#666666",
+          "bg": "#FFFFFF",
+          "ratio": 5.74,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<use>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<use>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        }
+      ],
+      "font_size_violations": [
+        {
+          "text": "P · 13",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "SIX BRANDS WHERE THE SWISS GRID STILL LI",
+          "font_size": 14.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "CUPERTINO · 1976",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "极简理性的产品语言",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "从早期 Keynote 到 HIG",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "瑞士血脉最显眼的继承者",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "MOUNTAIN VIEW · 1998",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Material 设计系统",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "8dp 网格 + 几何字体",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "把瑞士工程化到移动端",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "STOCKHOLM · 2006",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "杂志感的版面语法",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "大字号 · 网格分块",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "把音乐变成视觉故事",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "SAN FRANCISCO · 2008",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "DLS 设计语言系统",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "模数 grid + 极简识别",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "摄影也走客观纪实路线",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "ARMONK · 1911",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "JMB 1967 起任 IBM 顾问",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Paul Rand 同期接手识别",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "直系瑞士血统案例",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "COLOGNE · 1955",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "Otl Aicher 1962 VI",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "乌尔姆系统化设计标杆",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "基本沿用至今 60 余年",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "13 / 14",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        }
+      ]
+    },
+    {
+      "slide": "14_closing",
+      "file": "14_closing.svg",
+      "pairs": [
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#999999",
+          "bg": "#FFFFFF",
+          "ratio": 2.85,
+          "severity": "error"
+        },
+        {
+          "element": "<line>",
+          "attr": "stroke",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#1A1A1A",
+          "bg": "#FFFFFF",
+          "ratio": 17.4,
+          "severity": "ok"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#D9251D",
+          "bg": "#FFFFFF",
+          "ratio": 4.96,
+          "severity": "warning"
+        },
+        {
+          "element": "<text>",
+          "attr": "fill",
+          "color": "#666666",
+          "bg": "#FFFFFF",
+          "ratio": 5.74,
+          "severity": "warning"
+        }
+      ],
+      "font_size_violations": [
+        {
+          "text": "P · 14 · CLOSING",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "SWISS GRID SYSTEMS · A LECTURE",
+          "font_size": 13.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "END · 14 / 14 · 2026",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        },
+        {
+          "text": "— THANK YOU —",
+          "font_size": 11.0,
+          "role": "body",
+          "severity": "error"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "errors": 326,
+    "warnings": 47
+  }
+}

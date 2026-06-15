@@ -1,0 +1,94 @@
+# PPT Master — minimal CI
+#
+# Intent: the project intentionally ships without a tests/ directory (see
+# AGENTS.md and docs/rules/code-style.md). This workflow provides a
+# lightweight safety net that honours that convention:
+#
+#   1. Bytecode-compile every Python module under skills/ppt-master/scripts/
+#      so a syntax error introduced anywhere is caught before merge.
+#
+#   2. Run svg_quality_checker.py against every shipped example project.
+#      The 21 example projects in examples/ppt169_* are end-to-end runs of
+#      the full pipeline — they function as integration-test fixtures by
+#      construction. A failure here usually means a regression in the
+#      converter / canvas config / spec-lock chain.
+#
+# Triggered on pull_request and pushes to main. Concurrency group prevents
+# redundant runs while a previous one is still finishing.
+
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: Smoke check (compile + example quality)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # The scripts tree is mostly stdlib-only at runtime; install the
+          # *minimum* needed for svg_quality_checker.py to import cleanly.
+          # See skills/ppt-master/requirements.txt for the full (optional)
+          # list — we deliberately do not pull all of it here to keep CI
+          # fast and surface any "this script silently depends on a missing
+          # optional dep" surprises.
+          pip install python-pptx Pillow
+
+      - name: Bytecode-compile all scripts
+        run: |
+          python -m compileall -q -j 0 skills/ppt-master/scripts
+          echo "compileall: OK ($(find skills/ppt-master/scripts -name '*.py' | wc -l) files)"
+
+      - name: Smoke-check shipped example projects
+        env:
+          # scripts/ is not on sys.path by default — set it so the
+          # checker's `from project_utils import CANVAS_FORMATS` resolves.
+          PYTHONPATH: skills/ppt-master/scripts
+          PYTHONIOENCODING: utf-8
+          PYTHONUTF8: '1'
+        run: |
+          shopt -s nullglob
+          examples=(examples/ppt169_*)
+          if [ ${#examples[@]} -eq 0 ]; then
+            echo "No example projects found under examples/ — nothing to check."
+            exit 0
+          fi
+          echo "Found ${#examples[@]} example project(s)."
+          failed=0
+          for ex in "${examples[@]}"; do
+            echo "::group::Checking $ex"
+            if ! python skills/ppt-master/scripts/svg_quality_checker.py "$ex"; then
+              echo "::error::svg_quality_checker failed for $ex"
+              failed=1
+            fi
+            echo "::endgroup::"
+          done
+          if [ "$failed" -ne 0 ]; then
+            echo "::error::One or more example projects failed the quality check."
+            exit 1
+          fi
+          echo "All ${#examples[@]} example project(s) passed."

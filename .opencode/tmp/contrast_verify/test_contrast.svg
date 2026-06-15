@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#FFFFFF"/>
+  <g id="title-block">
+    <text font-size="44" fill="#000000" x="100" y="100">big</text>
+  </g>
+  <g id="body">
+    <text font-size="18" fill="#888888" x="100" y="200">small</text>
+  </g>
+</svg>

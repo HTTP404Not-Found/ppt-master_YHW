@@ -1,0 +1,32 @@
+{
+  "id": "dark-warm",
+  "kind": "dark",
+  "version": "1.0.0",
+  "description": "Warm dark editorial — black-brown canvas, cream text, amber accent. Use for brand storytelling, lifestyle, hospitality, premium product launches.",
+  "tokens": {
+    "bg-canvas":      "#1A0F08",
+    "bg-surface":     "#241810",
+    "fill-card":      "#2D1F14",
+    "text-primary":   "#F8EFE4",
+    "text-secondary": "#D9C7B0",
+    "text-muted":     "#8A7A66",
+    "accent":         "#6FB4D8",
+    "accent-warm":    "#FFB347",
+    "stroke-frame":   "#E8D9C0",
+    "stroke-divider": "#3A2A1E"
+  },
+  "ratios": {
+    "text-primary/bg-canvas":   16.54,
+    "text-secondary/bg-canvas": 11.42,
+    "text-muted/bg-canvas":      4.53,
+    "accent/bg-canvas":          8.24,
+    "accent-warm/bg-canvas":    10.57,
+    "stroke-frame/bg-canvas":   13.55,
+    "stroke-divider/bg-canvas":  1.37
+  },
+  "wcag": {
+    "min_text_ratio":   4.5,
+    "min_stroke_ratio": 3.0,
+    "verified_at":      "2026-06-13"
+  }
+}

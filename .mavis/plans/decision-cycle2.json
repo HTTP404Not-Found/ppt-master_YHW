@@ -1,0 +1,29 @@
+{
+  "last_cycle": [
+    { "task_id": "integration-verify", "verdict": "accept", "reason": "Integration report is complete and honest: baseline quantified (89 R1 / 939 font-min / 537 no-hex), 2 P0 blockers reproducibly confirmed by independent verifier, file-mtime audit clean. Task's job was to find & report issues — done." }
+  ],
+  "next_cycle": [
+    {
+      "task_id": "fix-schema-mismatch",
+      "title": "修复主题 schema 不匹配(theme-system validator vs contrast-checker validate_theme)",
+      "prompt": "工作位置: C:\\ppt-master-main\\ppt-master-main\n\n问题: 整合测试发现 scripts/validate_theme.py(theme-system 轨道产出)与 scripts/contrast_checker.py(contrast-checker 轨道产出)对主题 JSON 的验证逻辑不一致,导致同一个 dark-frost.json 在 contrast_checker.validate_theme() 上 fail。让两个 validator 对齐。\n\n必做事项:\n1. 读两边源码: skills/ppt-master/scripts/validate_theme.py + contrast_checker.py 的 validate_theme() 函数 + themes/_schema.json + 至少 2 个主题 JSON\n2. 找出 schema 认知差异:常见可能差异包括 _schema.json 对某些 token 要求严格、validate_theme.py 检查的 keys 集合跟 schema 不同、contrast_checker.validate_theme() 用 wcag.min_text_ratio 但 schema/tokens 里的 ratios 是 float 不是 ratio、缺少 stroke-divider / accent-warm 等 token\n3. 写一个 tools/diagnose_theme_schema.py 列出两边差异\n4. 修复方案(选 A 优先): contrast_checker.py 的 validate_theme() 直接调用 validate_theme.py 的逻辑(或反过来),移除两处重复实现,选一个当 single source of truth。加 wrapper validate_theme_unified()。要保留 backwards compat。\n5. 加测试 tests/test_validate_theme_unified.py 或加到现有 test_contrast_checker.py:4 个主题 JSON 必须 pass,缺 stroke-frame 的主题 fail,text-primary 不达 4.5 的 fail\n6. 验证: python skills/ppt-master/scripts/contrast_checker.py skills/ppt-master/themes/dark-frost.json 必须 exit 0(其他 3 个主题同样),python -m pytest skills/ppt-master/scripts/tests/ -v 全部 pass\n\n严格禁止:不要改 themes/ 内的 JSON 文件、不要改 SKILL.md、不要动 examples/、不要改 finalize_svg / svg_to_pptx(那是另一个任务)、不要安装新套件。\n\n完成后写 deliverable.md:两个 validator 的 diff 摘要、选定哪个方案加为什么、4 个主题 exit code 证据、pytest 结果。",
+      "assigned_to": "coder",
+      "verified_by": "verifier",
+      "verify_prompt": "独立验证主题 schema 对齐修复。1. 跑 python C:\\ppt-master-main\\ppt-master-main\\skills\\ppt-master\\scripts\\contrast_checker.py 4 个主题 JSON,确认 exit code 0。2. 构造一个临时 invalid theme(删掉 stroke-frame),跑 contrast_checker 确认 exit code 非 0 且报错清楚。3. 跑 python -m pytest 全部 pass。4. 确认 worker 没偷改 themes/ 内 JSON 档。FAIL 条件:任何主题 exit code 非 0、pytest 不通过、worker 动了不该动的档。",
+      "timeout_ms": 1800000,
+      "depends_on": []
+    },
+    {
+      "task_id": "fix-svg-to-pptx-crash",
+      "title": "修复 finalize_svg + svg_to_pptx 在 glassmorphism native 模式 crash",
+      "prompt": "工作位置: C:\\ppt-master-main\\ppt-master-main\n\n问题: 整合测试发现端到端流程 finalize_svg.py → svg_to_pptx.py -s final --only legacy 对 examples/ppt169_glassmorphism_demo 会 crash。注意:在我们加 token 展开之前应该就 crash 了,所以这可能是 ppt-master 既有的 bug,但既然我们的修改碰到 finalize_svg 跟 svg_to_pptx,要先确认根因。\n\n必做事项:\n1. 重现 crash: 复制 examples/ppt169_glassmorphism_demo 到临时工作目录(不要动原始),跑 python skills/ppt-master/scripts/finalize_svg.py . --quiet 然后 python skills/ppt-master/scripts/svg_to_pptx.py . -s final --only legacy 2>&1,记下完整 stack trace\n2. 隔离根因: 跑 svg_to_pptx.py . -s final --only legacy 直接用 svg_output(跳过 finalize_svg)看是否还 crash;跑 svg_to_pptx.py . -s final --only native 对比;跑 finalize_svg.py 独立跑看 finalize 本身有没有问题;确认是 finalize_svg 引入还是 svg_to_pptx 既有问题\n3. 修复: 如果是我们 token 展开引入的,加防呆(没 spec_lock Theme 段时 skip 展开,或对未知 token 警告但不 fail);如果是 ppt-master 既有 bug,记录到 P1 残留,降级处理(legacy 模式是 fallback,先让 legacy 跑通);两种情况都加 try/except 包装错误信息\n4. 修完后验证: 跑完整流程确认 exit 0 且 PPTX 产出,然后再对 brutalist_ai_newspaper_2026 / image_text_showcase 重复一次\n5. 加 regression test 在 tests/test_svg_to_pptx_smoke.py 或加到现有测试\n\n严格禁止:不要改 examples/ 原始目录(复制到临时跑)、不要改 themes/、不要改 SKILL.md、不要改 contrast_checker 或其他模块、不要安装新套件。\n\n完成后写 deliverable.md:Crash stack trace 摘要、根因分析(是我们引入还是既有 bug)、修改的文件清单加 diff 摘要、3 个 examples 的最终结果、如果是 ppt-master 既有 bug 写 P1 残留说明。",
+      "assigned_to": "coder",
+      "verified_by": "verifier",
+      "verify_prompt": "独立验证 crash 修复。1. 复制 examples/ppt169_glassmorphism_demo 到临时目录(不要动原始)。2. 跑 finalize_svg.py 确认 exit 0。3. 跑 svg_to_pptx.py -s final --only legacy 确认 exit 0 且看到 PPTX 产出讯息。4. 确认 exports/ 有 .pptx 档。5. 跑 python -m pytest 全部 pass。6. 确认 worker 没动 examples/ 原始。FAIL 条件:仍 crash、PPTX 未产出、worker 动了原始 examples/、现有测试被破坏。",
+      "timeout_ms": 1800000,
+      "depends_on": []
+    }
+  ],
+  "plan_complete": false,
+  "message_to_user": "整合测试报告收下,派两条修补线:1) 对齐两个主题验证器的 schema;2) 确认端到端 crash 是新引入还是既有 bug,并修掉。"
+}

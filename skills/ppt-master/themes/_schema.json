@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ppt-master.local/schemas/theme.schema.json",
+  "title": "ppt-master Theme",
+  "description": "Color token bundle used by Strategist / Executor / svg_quality_checker to keep SVG output WCAG-compliant. Every theme declares semantic tokens (bg-canvas, text-primary, ...) plus pre-computed contrast ratios and a WCAG threshold block. Ratios are derived from the WCAG 2.1 relative-luminance formula and are authoritative at the time 'verified_at' was stamped — re-run validate_theme.py after any color edit.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "kind", "version", "tokens", "ratios", "wcag"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(-[a-z0-9]+)*$",
+      "description": "kebab-case identifier; doubles as filename stem (e.g. 'dark-frost')."
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["dark", "light"],
+      "description": "Overall luminance class. Drives which bg-surface shade is preferred and which accent saturation is allowed."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "SemVer. Bump major on token-removal or ratio-regression; minor on token-add."
+    },
+    "description": {
+      "type": "string",
+      "description": "One-line human-readable rationale (e.g. 'Cool tech keynote — black canvas, ice-blue accent')."
+    },
+    "tokens": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bg-canvas",
+        "bg-surface",
+        "fill-card",
+        "text-primary",
+        "text-secondary",
+        "text-muted",
+        "accent",
+        "accent-warm",
+        "stroke-frame",
+        "stroke-divider"
+      ],
+      "properties": {
+        "bg-canvas":      { "$ref": "#/$defs/hex", "description": "Slide background." },
+        "bg-surface":     { "$ref": "#/$defs/hex", "description": "Panel / card surface above canvas." },
+        "fill-card":      { "$ref": "#/$defs/hex", "description": "Lighter card fill for layered composition." },
+        "text-primary":   { "$ref": "#/$defs/hex", "description": "Body and headings." },
+        "text-secondary": { "$ref": "#/$defs/hex", "description": "Sub-headings, captions." },
+        "text-muted":     { "$ref": "#/$defs/hex", "description": "Footnotes, axis labels, timestamps." },
+        "accent":         { "$ref": "#/$defs/hex", "description": "Primary brand accent (links, highlights)." },
+        "accent-warm":    { "$ref": "#/$defs/hex", "description": "Secondary warm accent (charts, alerts, CTAs)." },
+        "stroke-frame":   { "$ref": "#/$defs/hex", "description": "Border around cards / hero frames." },
+        "stroke-divider": { "$ref": "#/$defs/hex", "description": "Hairline dividers. May be < 3:1 against bg-canvas (decorative only)." }
+      }
+    },
+    "ratios": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Pre-computed WCAG contrast ratios. Keys MUST match '{token-fg}/bg-canvas' for the corresponding tokens. Validator re-computes and compares; tolerance ±0.2 (floating point + rounding).",
+      "required": [
+        "text-primary/bg-canvas",
+        "text-secondary/bg-canvas",
+        "text-muted/bg-canvas",
+        "accent/bg-canvas",
+        "accent-warm/bg-canvas",
+        "stroke-frame/bg-canvas",
+        "stroke-divider/bg-canvas"
+      ],
+      "properties": {
+        "text-primary/bg-canvas":   { "type": "number", "minimum": 4.5 },
+        "text-secondary/bg-canvas": { "type": "number", "minimum": 4.5 },
+        "text-muted/bg-canvas":     { "type": "number", "minimum": 4.5 },
+        "accent/bg-canvas":         { "type": "number", "minimum": 4.5, "maximum": 12 },
+        "accent-warm/bg-canvas":    { "type": "number", "minimum": 4.5, "maximum": 12 },
+        "stroke-frame/bg-canvas":   { "type": "number", "minimum": 3 },
+        "stroke-divider/bg-canvas": { "type": "number", "minimum": 1 }
+      }
+    },
+    "wcag": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["min_text_ratio", "min_stroke_ratio", "verified_at"],
+      "properties": {
+        "min_text_ratio": { "type": "number", "const": 4.5, "description": "WCAG 2.1 AA minimum for body text." },
+        "min_stroke_ratio": { "type": "number", "const": 3.0, "description": "WCAG 2.1 AA minimum for non-text UI components." },
+        "verified_at": { "type": "string", "format": "date", "description": "ISO date when ratios were last re-computed by validate_theme.py." }
+      }
+    }
+  },
+  "$defs": {
+    "hex": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$",
+      "description": "CSS-style 7-char hex color."
+    }
+  }
+}

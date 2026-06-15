@@ -1,0 +1,460 @@
+version: 1
+plan:
+  name: 'ppt-master 對比度修復 P0 + P1（主題系統 + 對比度規則 + 字體大小強制）'
+  max_concurrency: 3
+  max_consecutive_failures: 2
+  max_cycles: 8
+  auto_reject_retries: 1
+tasks:
+  # ============== Track A: 主題系統骨架 ==============
+  - id: theme-system
+    title: '建立主題系統骨架（4 套主題 JSON + schema + theme-guide 文件）'
+    prompt: |
+      你的工作位置: `C:\ppt-master-main\ppt-master-main`(整個 ppt-master repo)
+
+      ## 目標
+      建立 ppt-master 的主題系統骨架,讓後續 SVG 與 PPTX 都有語意化的色彩 token 可用。
+      這對應 planning/tasks.md 裡的 T-P0-2 + T-P0-3 (主題部分) + T-P1-1 + T-P1-2。
+
+      ## 必做事項
+
+      ### 1. 新增目錄與檔案
+      - `skills/ppt-master/themes/`(新目錄)
+      - `skills/ppt-master/themes/_schema.json` — 主題 JSON schema
+      - `skills/ppt-master/themes/dark-frost.json` — 黑底 + 高對比白字 + 冰藍強調
+      - `skills/ppt-master/themes/dark-warm.json` — 黑底 + 米白字 + 琥珀強調
+      - `skills/ppt-master/themes/light-snow.json` — 白底 + 深灰字 + 藍強調
+      - `skills/ppt-master/themes/light-cream.json` — 米色底 + 深棕字 + 暖色強調
+      - `skills/ppt-master/references/theme-guide.md` — 主題設計指南
+
+      ### 2. 主題 JSON Schema 要求(`_schema.json`)
+      每個主題 JSON 必須包含:
+      ```json
+      {
+        "id": "kebab-case-id",
+        "kind": "dark" | "light",
+        "version": "1.0.0",
+        "tokens": {
+          "bg-canvas":      "#0A0A0A",   // 主背景
+          "bg-surface":     "#141414",   // 卡片 / 面板背景
+          "fill-card":      "#1A1A1A",   // 較淺卡面
+          "text-primary":   "#F5F5F5",   // 主文字
+          "text-secondary": "#C8C8C8",   // 次文字
+          "text-muted":     "#8A8A8A",   // 輔助文字
+          "accent":         "#5AC8FA",   // 主強調(冰藍)
+          "accent-warm":    "#FF9F0A",   // 暖色強調(琥珀)
+          "stroke-frame":   "#E5E5E5",   // 框線
+          "stroke-divider": "#3A3A3A"    // 分隔線
+        },
+        "ratios": {
+          "text-primary/bg-canvas":  17.4,    // 預計算 WCAG ratio
+          "text-secondary/bg-canvas": 11.2,
+          "text-muted/bg-canvas":     4.8,
+          "stroke-frame/bg-canvas":   16.1,
+          "stroke-divider/bg-canvas": 1.6,    // 允許 < 3:1(刻意,裝飾用)
+          "accent/bg-canvas":         8.9,
+          "accent-warm/bg-canvas":    9.3
+        },
+        "wcag": {
+          "min_text_ratio": 4.5,
+          "min_stroke_ratio": 3.0,
+          "verified_at": "2026-06-13"
+        }
+      }
+      ```
+
+      ### 3. 4 套主題的色彩要求
+      **所有 text-*/bg-canvas 配對 ≥ 4.5:1**:
+      - dark-frost: bg-canvas = `#0A0A0A`,text-primary = `#F5F5F5` (應 ≈ 17:1)
+      - dark-warm:  bg-canvas = `#1A0F08`,text-primary = `#F8EFE4` (米白)
+      - light-snow: bg-canvas = `#FFFFFF`,text-primary = `#1A1A1A` (應 ≈ 17:1)
+      - light-cream: bg-canvas = `#F5EFE3`,text-primary = `#3A2E1F` (米色底深棕字)
+
+      **計算方式**(自己算,不準依賴套件):
+      ```
+      relative_luminance = 0.2126*R + 0.7152*G + 0.0722*B
+      其中 R/G/B 經 sRGB 反伽馬:若 c <= 0.03928 則 c/12.92,否則 ((c+0.055)/1.055)^2.4
+      ratio = (L_lighter + 0.05) / (L_darker + 0.05)
+      ```
+
+      ### 4. theme-guide.md 內容要求
+      - 為何需要主題系統(token > value,語意化)
+      - 4 套主題的設計 rationale(frost=冰冷科技,warm=溫暖人文,snow=極簡白,cream=紙本質感)
+      - 如何挑選對比度達標的色票(WCAG luminance 公式範例)
+      - Accent 飽和度準則(避免 glare:dark 主題 accent vs bg 應 < 12:1)
+      - 灰階派生方法(P2 提示,先列出概念)
+      - 字體大小與主題的對應(dark theme 建議偏大:H1=44pt, H2=34pt, Body=26pt)
+
+      ### 5. 驗證項目(DoD)
+      - [ ] 4 個主題 JSON 檔案存在且通過 schema 結構驗證(自己寫個小 script `skills/ppt-master/scripts/validate_theme.py` 檢查 keys 齊全,ratios 數值與 tokens 計算一致)
+      - [ ] 所有 text-*/bg-canvas ratio ≥ 4.5
+      - [ ] stroke-frame/bg-canvas ratio ≥ 3.0
+      - [ ] `_schema.json` 是有效的 JSON Schema draft 2020-12(或至少是 jsonschema 可用的格式)
+      - [ ] `validate_theme.py <theme.json>` 在 4 個主題上 exit code 0
+      - [ ] theme-guide.md 含正反例、字體大小建議
+
+      ## 嚴格禁止
+      - ❌ 不要改 `skills/ppt-master/SKILL.md`(那是給 phase B Executor 用的,後續軌會處理)
+      - ❌ 不要寫 SVG 檔或改 finalize_svg.py / svg_to_pptx.py(那是其他軌的事)
+      - ❌ 不要改 references/strategist.md / executor-base.md(其他軌)
+      - ❌ 不要動 examples/ 目錄
+
+      ## 完成後請寫一份 deliverable.md
+      列出:
+      - 4 個主題 JSON 的實際 ratio 數值
+      - validate_theme.py 的執行結果
+      - 你新增的檔案清單(絕對路徑)
+      - theme-guide.md 的章節大綱
+    assigned_to: coder
+    verified_by: verifier
+    verify_prompt: |
+      獨立驗證主題系統骨架。**不要只讀 worker 的 deliverable.md**,要自己跑:
+
+      1. 讀 `C:\ppt-master-main\ppt-master-main\skills\ppt-master\themes\_schema.json`,
+         確認是合法 JSON Schema 且列出所有必要 keys(id, kind, version, tokens, ratios, wcag)。
+
+      2. 對 4 個主題 JSON(用 `Get-Content ... | ConvertFrom-Json`)逐一檢查:
+         - 所有必要 tokens 存在:bg-canvas, bg-surface, fill-card, text-primary, text-secondary, text-muted, accent, accent-warm, stroke-frame, stroke-divider
+         - 每個 hex 都是合法 7-char `#RRGGBB`
+         - kind 欄位是 "dark" 或 "light"
+         - ratios 區段的數值與 token 顏色**自己用 luminance 公式重算一次**,確認一致(允許 ±0.2 浮點誤差)
+         - 所有 text-*/bg-canvas ratio ≥ 4.5
+         - stroke-frame/bg-canvas ratio ≥ 3.0
+
+      3. 跑 worker 寫的 `python skills/ppt-master/scripts/validate_theme.py skills/ppt-master/themes/dark-frost.json`,
+         確認 exit code 0 且輸出「PASS」。
+
+      4. 讀 `references/theme-guide.md`,確認包含:
+         - 主題設計 rationale
+         - 對比度計算公式
+         - 字體大小建議(H1≥40pt, H2≥32pt, Body≥24pt)
+
+      5. 跑 `python skills/ppt-master/scripts/validate_theme.py skills/ppt-master/themes/dark-warm.json`(也要 pass)
+
+      FAIL 條件:任何主題 ratio 不達標、validate_theme.py 在合法主題上 exit code 非 0、theme-guide.md 缺關鍵章節。
+    timeout_ms: 1800000
+
+  # ============== Track B: contrast_checker + 整合 ==============
+  - id: contrast-checker
+    title: 'contrast_checker.py + 字體大小檢查 + svg_quality_checker 整合'
+    prompt: |
+      你的工作位置: `C:\ppt-master-main\ppt-master-main`
+
+      ## 目標
+      建立對比度與字體大小的自動化檢測腳本,並整合進現有 svg_quality_checker。
+      對應 tasks.md 的 T-P0-1 + T-P0-4 + T-P0-5 + T-P0-7。
+
+      ## 必做事項
+
+      ### 1. 新增 `skills/ppt-master/scripts/contrast_checker.py`
+      必須包含以下函式(具體簽名見下):
+
+      ```python
+      def compute_ratio(fg: str, bg: str) -> float:
+          """WCAG 對比度比值。fg/bg 接受 '#RRGGBB' 或 '#RGB'。回傳 (L1+0.05)/(L2+0.05)"""
+
+      def validate_theme(theme_path: Path) -> tuple[bool, list[str]]:
+          """驗證主題 JSON 的 ratios 區段是否符合 wcag.min_text_ratio 等門檻。
+          回傳 (passed, errors)"""
+
+      def check_svg(svg_path: Path, theme: dict | None = None) -> list[dict]:
+          """解析 SVG 內所有 fill / stroke,與所在背景計算 ratio。
+          theme 為 None 時使用 spec_lock.md 載入。
+          回傳違規清單: [{'element': '...', 'attr': 'fill', 'color': '#...', 'bg': '#...', 'ratio': 3.2, 'rule': 'R1'}]"""
+
+      def check_font_sizes(svg_path: Path) -> list[dict]:
+          """解析 SVG 內 <text> 的 font-size 屬性,檢查 H1≥40 / H2≥32 / Body≥24。
+          透過 font-size 數值與 element role(class 或父元素)分類。
+          回傳違規清單: [{'element': '...', 'text': '...', 'font_size': 18, 'role': 'body', 'rule': 'font_min'}]"""
+
+      def check_no_hex_literals(svg_path: Path, theme: dict | None = None) -> list[dict]:
+          """掃描 SVG 內是否出現 '#RRGGBB' 字面值(非 token)。
+          白名單: transparent, currentColor, none, inherit。
+          如果有 theme,允許 theme.tokens 內的 hex。"""
+
+      def main():
+          """CLI: python contrast_checker.py <svg_or_theme> [--json] [--ci] [--remediate strategy]"""
+      ```
+
+      ### 2. 整合進 `scripts/svg_quality_checker.py`
+      - 在 `check_directory` 或對應的檢查流程中加入對 contrast_checker 的呼叫
+      - 違規級別:ratio < 4.5 → error(阻塞), < 7.0 → warning, ≥ 7.0 → ok
+      - 字體大小違規:H1<40 / H2<32 / Body<24 → error
+
+      ### 3. `finalize_svg.py` 改動:token 展開
+      - 在 SVG 進入 svg_final/ 階段前,把 `var(--token-name)` 替換為對應 hex
+      - 從 spec_lock.md 的 `## Theme` 段載入主題(如果存在),否則 skip
+      - 若發現有寫死 hex 但 spec_lock 標記了主題 → 警告"token 覆蓋率不完整"
+
+      ### 4. `svg_to_pptx.py` 改動
+      - token → hex 展開邏輯(同上,雙保險)
+      - 產出 `contrast_audit.json`(附在 exports/),列出所有 text/bg 配對的 ratio 與座標
+
+      ### 5. 單元測試 `skills/ppt-master/scripts/tests/test_contrast_checker.py`
+      必須包含:
+      - `test_compute_ratio`:白vs黑 → 21:1(±0.1)
+      - `test_compute_ratio_short_hex`:#FFF vs #000 → 21:1
+      - `test_validate_theme_pass`:dark-frost.json 通過
+      - `test_validate_theme_fail`:構造一個不合規的主題(把 text-primary 改成 #888)應該 fail
+      - `test_check_font_sizes`:有個 SVG 含 `<text font-size="18">...</text>` 應該報 error
+      - `test_check_font_sizes_h1_pass`:`<text font-size="44">` 應該 pass
+      - `test_check_no_hex_literals`:有 #1A1A1A 應該報違規,除非有 theme.tokens 包含
+
+      ### 6. CLI 範例
+      ```bash
+      python scripts/contrast_checker.py skills/ppt-master/themes/dark-frost.json
+      # 輸出: PASS — 所有 ratios 符合 WCAG AA
+
+      python scripts/contrast_checker.py examples/ppt169_glassmorphism_demo/svg_output/slide-01.svg --json
+      # 輸出: JSON 違規清單
+
+      python scripts/svg_quality_checker.py examples/ppt169_glassmorphism_demo
+      # 整合後輸出,顯示 contrast + font_size 違規
+      ```
+
+      ### 7. 驗證(DoD)
+      - [ ] `python scripts/contrast_checker.py themes/dark-frost.json` exit 0
+      - [ ] `python -m pytest scripts/tests/test_contrast_checker.py` 全部 pass
+      - [ ] `python scripts/svg_quality_checker.py examples/ppt169_glassmorphism_demo` 跑得出來,可能報現有違規(這是預期的 baseline)
+      - [ ] finalize_svg.py 與 svg_to_pptx.py 在沒有 spec_lock Theme 段時不破壞現有行為(向後相容)
+      - [ ] contrast_audit.json 在 svg_to_pptx 跑完後產出
+
+      ## 嚴格禁止
+      - ❌ 不要改 SKILL.md
+      - ❌ 不要改 themes/ 目錄(那是其他軌的工作)
+      - ❌ 不要改 references/strategist.md / executor-base.md(其他軌)
+      - ❌ 不要動 examples/ 內的任何 SVG(只讀不改)
+      - ❌ 不要安裝新的 pip 套件(用 Python 標準庫,自己寫 luminance 公式)
+
+      ## 完成後請寫 deliverable.md
+      - 列出新增/修改的檔案(絕對路徑)
+      - pytest 輸出
+      - CLI 範例的實際執行結果
+      - finalize_svg / svg_to_pptx 向後相容性的測試證據
+    assigned_to: coder
+    verified_by: verifier
+    verify_prompt: |
+      獨立驗證對比度檢測器。**重新跑、不要只看 diff**:
+
+      1. 跑 `python C:\ppt-master-main\ppt-master-main\skills\ppt-master\scripts\contrast_checker.py C:\ppt-master-main\ppt-master-main\skills\ppt-master\themes\dark-frost.json`
+         確認 exit code 0。如果檔案不存在(theme-system 軌未完成),先檢查 themes/ 目錄狀態。
+
+      2. 跑 `python -m pytest C:\ppt-master-main\ppt-master-main\skills\ppt-master\scripts\tests\test_contrast_checker.py -v`
+         所有測試必須 pass。**至少要有 6 個測試**。
+
+      3. 自己寫一個臨時 SVG:`<svg><text font-size="18">small</text><text font-size="44">big</text></svg>`
+         存到 `/tmp/test_contrast.svg`,然後跑 `contrast_checker.py /tmp/test_contrast.svg`。
+         確認 18pt 的 text 報 error,44pt 的 pass。
+
+      4. 自己算 luminance:
+         - 給定 `#000000` 與 `#FFFFFF`,ratio 應為 21.0
+         - 給定 `#0A0A0A` 與 `#F5F5F5`,ratio 應約 17.4(±0.5)
+         用 worker 的 `compute_ratio()` 驗證。
+
+      5. 跑 `python scripts/svg_quality_checker.py examples/ppt169_glassmorphism_demo` 確認沒有 import error 或 crash。
+
+      6. **向後相容**: 跑 `python scripts/finalize_svg.py --help` 確認原本 CLI 還能用。
+         跑 `python scripts/svg_to_pptx.py --help` 同上。
+
+      7. 如果 svg_to_pptx 跑了之後沒產出 contrast_audit.json,FAIL。
+
+      FAIL 條件:測試不通、CLI 不存在、luminance 計算錯誤 >0.5、向後相容破壞。
+    timeout_ms: 1800000
+
+  # ============== Track C: spec_lock + Executor prompt ==============
+  - id: spec-and-prompts
+    title: 'spec_lock.md 加 Theme 段 + Executor/Strategist prompt 規則'
+    prompt: |
+      你的工作位置: `C:\ppt-master-main\ppt-master-main`
+
+      ## 目標
+      把主題系統注入 spec_lock 流程,讓 Strategist 第 9 確認 + Executor 規則正式生效。
+      對應 tasks.md 的 T-P0-3 + T-P0-4(部分)+ T-P1-1(部分)。
+
+      ## 必做事項
+
+      ### 1. 讀現有 references/strategist.md
+      找到「8 個確認」的段落(可能有不同稱呼:8 confirmations / Eight Confirmations)。
+      在現有確認清單**之後**新增第 9 題「主題選擇」:
+      ```
+      9. 主題選擇(Theme Selection):
+         - 列出 4 套主題(dark-frost / dark-warm / light-snow / light-cream)含簡短描述
+         - 預設:dark-frost
+         - 寫入 spec_lock.md 的 ## Theme 段
+      ```
+
+      ### 2. 讀現有 references/executor-base.md
+      新增或擴充一個段落(放在「字體大小」或「色彩規範」附近):
+      - 「禁止寫死 hex」: SVG 內禁止出現 `#RRGGBB`,必須使用 `var(--token-name)`
+      - 白名單:`transparent`、`currentColor`、`none`、`inherit`
+      - 從 spec_lock.md 的 `## Theme` 段載入主題,展開 token 為 hex
+      - 「字體大小強制」:
+        - H1(主標題) ≥ 40pt
+        - H2(副標題) ≥ 32pt
+        - Body(內文) ≥ 24pt
+        - Dark theme 建議:H1=44pt, H2=34pt, Body=26pt(預留投影 buffer)
+      - 每條規則給正反例
+
+      ### 3. 找現有 spec_lock 範本
+      在 `examples/` 任一專案的 `spec_lock.md`(例:`examples/ppt169_glassmorphism_demo/spec_lock.md`)
+      看一下現有結構。在文件**末尾**或「色彩」段後新增:
+      ```markdown
+      ## Theme
+
+      | 欄位 | 值 |
+      |---|---|
+      | theme_id | dark-frost |
+      | kind | dark |
+      | applied_to_pages | all |
+      | min_text_ratio | 4.5 |
+      | min_stroke_ratio | 3.0 |
+
+      ### Tokens 參考
+      - bg-canvas: #0A0A0A
+      - bg-surface: #141414
+      - text-primary: #F5F5F5
+      - text-secondary: #C8C8C8
+      - text-muted: #8A8A8A
+      - accent: #5AC8FA
+      - accent-warm: #FF9F0A
+      - stroke-frame: #E5E5E5
+      - stroke-divider: #3A3A3A
+      - fill-card: #1A1A1A
+      ```
+
+      ### 4. 新增 `skills/ppt-master/scripts/spec_lock_validator.py`
+      驗證 spec_lock.md 是否含 `## Theme` 段。如果 missing → 報錯。
+      CLI:
+      ```bash
+      python scripts/spec_lock_validator.py <project>/spec_lock.md
+      # 輸出: PASS 或列出缺漏
+      ```
+
+      ### 5. 驗證(DoD)
+      - [ ] strategist.md 含第 9 題主題選擇(可以 git diff 給我看)
+      - [ ] executor-base.md 含「禁止寫死 hex」+「字體大小強制」段落,有正反例
+      - [ ] examples/ppt169_glassmorphism_demo/spec_lock.md 含 `## Theme` 段
+      - [ ] `python scripts/spec_lock_validator.py examples/ppt169_glassmorphism_demo/spec_lock.md` exit 0
+      - [ ] spec_lock_validator.py 對一個不含 Theme 段的 spec_lock 報錯(構造一個臨時檔測試)
+
+      ## 嚴格禁止
+      - ❌ 不要改 SKILL.md 本身(這是更上游的協議)
+      - ❌ 不要動 themes/ 目錄(其他軌)
+      - ❌ 不要寫 contrast_checker.py(其他軌)
+      - ❌ 不要動 examples/ 裡的 SVG 或 design_spec.md
+
+      ## 完成後請寫 deliverable.md
+      - 列出修改/新增的檔案(絕對路徑)
+      - 對 strategist.md / executor-base.md 的 diff 摘要
+      - spec_lock_validator.py 執行結果(含 pass 與 fail 各一例)
+    assigned_to: coder
+    verified_by: verifier
+    verify_prompt: |
+      獨立驗證 spec_lock 與 prompt 改動。
+
+      1. 讀 `C:\ppt-master-main\ppt-master-main\skills\ppt-master\references\strategist.md`,
+         搜尋「主題」「Theme」「主題選擇」字串,確認第 9 題存在且列舉 4 套主題。
+
+      2. 讀 `C:\ppt-master-main\ppt-master-main\skills\ppt-master\references\executor-base.md`,
+         搜尋「禁止寫死 hex」「字體大小」「40pt」「24pt」字串,確認:
+         - 有禁止 hex 的段落,含白名單(transparent/currentColor/none/inherit)
+         - 有字體大小段落,H1≥40、H2≥32、Body≥24 都明確出現
+         - Dark theme 建議偏大的值(H1=44 / H2=34 / Body=26)出現
+
+      3. 讀 `C:\ppt-master-main\ppt-master-main\examples\ppt169_glassmorphism_demo\spec_lock.md`,
+         確認含 `## Theme` 段與 theme_id 欄位。
+
+      4. 跑 `python C:\ppt-master-main\ppt-master-main\skills\ppt-master\scripts\spec_lock_validator.py C:\ppt-master-main\ppt-master-main\examples\ppt169_glassmorphism_demo\spec_lock.md`
+         確認 exit code 0。
+
+      5. 構造一個臨時 spec_lock(沒有 ## Theme 段),跑 validator,確認 exit code 非 0 且報錯訊息含 "Theme"。
+
+      6. **沒改 SKILL.md**:確認 `C:\ppt-master-main\ppt-master-main\skills\ppt-master\SKILL.md` 沒被改動(可用 git diff 對比)。
+
+      FAIL 條件:任一關鍵字串缺失、validator 對合法 spec_lock 報錯、SKILL.md 被改動。
+    timeout_ms: 1800000
+
+  # ============== Track D: 整合驗證 ==============
+  - id: integration-verify
+    title: '3 個 representative examples 整合測試 + 對比度 audit'
+    prompt: |
+      你的工作位置: `C:\ppt-master-main\ppt-master-main`
+
+      ## 目標
+      在 A/B/C 三軌完成後,做端到端整合測試。對應 tasks.md 的 T-P0-6 + T-P0-7 整合驗證。
+
+      ## 必做事項
+
+      ### 1. 挑選 3 個 representative examples
+      從 `examples/` 挑 3 個不同風格的:
+      - `ppt169_glassmorphism_demo`(深色 glassmorphism,封面/章節/分隔/內容各類型頁面齊全)
+      - `ppt169_brutalist_ai_newspaper_2026`(報紙風格,有大量文字)
+      - `ppt169_image_text_showcase`(圖文混排)
+
+      ### 2. 跑 baseline 違規量測(修改前)
+      對每個 example 的 `svg_output/*.svg` 跑:
+      ```bash
+      python skills/ppt-master/scripts/contrast_checker.py <svg> --json > baseline_<example>.json
+      python skills/ppt-master/scripts/contrast_checker.py <svg> --font-size > baseline_fontsize_<example>.txt
+      ```
+      統計違規數(text/background < 4.5:1、字體大小不達標)。
+
+      ### 3. 跑 contrast_checker 的所有功能
+      - 主題驗證:`validate_theme(dark-frost.json)` 應 pass
+      - SVG 對比度:`check_svg(svg)` 列出所有違規
+      - 字體大小:`check_font_sizes(svg)` 列出所有違規
+      - hex 字面值:`check_no_hex_literals(svg)` 列出違規數
+
+      ### 4. 跑 finalize_svg + svg_to_pptx 整合
+      對 1 個 example(挑 glassmorphism_demo)走完整流程:
+      ```bash
+      python skills/ppt-master/scripts/finalize_svg.py <project>
+      python skills/ppt-master/scripts/svg_to_pptx.py <project>
+      ```
+      確認:
+      - PPTX 產出(在 exports/)
+      - contrast_audit.json 產出
+      - 沒有 crash
+
+      ### 5. 產出 `INTEGRATION_REPORT.md`
+      路徑:`projects/ppt-master/INTEGRATION_REPORT.md`(或 `C:\ppt-master-main\ppt-master-main\INTEGRATION_REPORT.md`)
+      內容:
+      - 3 個 examples 的 baseline 違規統計(text/bg 違規數、字體違規數、hex 寫死數)
+      - 整合流程執行結果
+      - 已發現的問題清單(若有)
+      - P1 殘留事項(若 A/B/C 有遺漏)
+
+      ## 嚴格禁止
+      - ❌ 不要修 A/B/C 三軌的程式碼——只驗證、發現問題,在報告裡列出
+      - ❌ 不要修改任何 SVG、JSON 主題、spec_lock.md
+      - ❌ 不要動現有 examples/ 結構(只讀)
+
+      ## 完成後請寫 deliverable.md
+      - INTEGRATION_REPORT.md 絕對路徑
+      - baseline 違規數字表格
+      - 任何遇到的 blocker 或問題
+    assigned_to: coder
+    depends_on: [theme-system, contrast-checker, spec-and-prompts]
+    verified_by: verifier
+    verify_prompt: |
+      獨立驗證整合測試的完整性與誠實度。
+
+      1. 確認 INTEGRATION_REPORT.md 存在(由 worker 給出路徑)。
+
+      2. 報告必須包含:
+         - 3 個 examples 的具體名稱(glassmorphism_demo / brutalist_ai_newspaper / image_text_showcase)
+         - 每個 example 的 baseline 違規數字(對比度違規數 + 字體違規數)
+         - 整合流程跑通的證據(哪幾個 example 成功走到 svg_to_pptx)
+
+      3. **自己抽查一個 example**:
+         對 `examples/ppt169_glassmorphism_demo/svg_output/slide-01.svg` 跑
+         `python skills/ppt-master/scripts/contrast_checker.py <path> --json`。
+         確認 worker 報告的 baseline 違規數大致準確(±20% 內即可,因為解析邏輯可能略有差異)。
+
+      4. 抽查 `finalize_svg.py` + `svg_to_pptx.py` 對 glassmorphism_demo 是否成功產出 PPTX。
+         檢查 exports/ 目錄有 .pptx 檔 + 對應的 contrast_audit.json。
+
+      5. 確認 worker 沒偷偷改 A/B/C 三軌的程式碼(可用 git diff 或檔案 mtime 對比)。
+
+      FAIL 條件:報告缺關鍵數據、worker 自行修改了他不該動的檔案、PPTX 未產出、audit json 缺失。
+    timeout_ms: 1800000

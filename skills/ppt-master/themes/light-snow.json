@@ -1,0 +1,32 @@
+{
+  "id": "light-snow",
+  "kind": "light",
+  "version": "1.0.0",
+  "description": "Bright neutral — pure-white canvas, near-black text, cool blue accent. Default for consulting decks, printed reports, dashboards.",
+  "tokens": {
+    "bg-canvas":      "#FFFFFF",
+    "bg-surface":     "#F7F7F7",
+    "fill-card":      "#EFEFEF",
+    "text-primary":   "#1A1A1A",
+    "text-secondary": "#4A4A4A",
+    "text-muted":     "#707070",
+    "accent":         "#0A66C2",
+    "accent-warm":    "#9A4A00",
+    "stroke-frame":   "#1A1A1A",
+    "stroke-divider": "#D5D5D5"
+  },
+  "ratios": {
+    "text-primary/bg-canvas":   17.40,
+    "text-secondary/bg-canvas":  8.86,
+    "text-muted/bg-canvas":      4.95,
+    "accent/bg-canvas":          5.69,
+    "accent-warm/bg-canvas":     6.26,
+    "stroke-frame/bg-canvas":   17.40,
+    "stroke-divider/bg-canvas":  1.47
+  },
+  "wcag": {
+    "min_text_ratio":   4.5,
+    "min_stroke_ratio": 3.0,
+    "verified_at":      "2026-06-13"
+  }
+}

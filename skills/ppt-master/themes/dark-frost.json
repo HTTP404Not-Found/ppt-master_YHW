@@ -1,0 +1,32 @@
+{
+  "id": "dark-frost",
+  "kind": "dark",
+  "version": "1.0.0",
+  "description": "Cool tech keynote — black canvas, ice-blue accent. Default theme for technical / product decks projected in dimmed rooms.",
+  "tokens": {
+    "bg-canvas":      "#0A0A0A",
+    "bg-surface":     "#141414",
+    "fill-card":      "#1A1A1A",
+    "text-primary":   "#F5F5F5",
+    "text-secondary": "#C8C8C8",
+    "text-muted":     "#8A8A8A",
+    "accent":         "#5AC8FA",
+    "accent-warm":    "#FF9F0A",
+    "stroke-frame":   "#E5E5E5",
+    "stroke-divider": "#3A3A3A"
+  },
+  "ratios": {
+    "text-primary/bg-canvas":   18.16,
+    "text-secondary/bg-canvas": 11.83,
+    "text-muted/bg-canvas":      5.73,
+    "accent/bg-canvas":         10.44,
+    "accent-warm/bg-canvas":     9.63,
+    "stroke-frame/bg-canvas":   15.72,
+    "stroke-divider/bg-canvas":  1.74
+  },
+  "wcag": {
+    "min_text_ratio":   4.5,
+    "min_stroke_ratio": 3.0,
+    "verified_at":      "2026-06-13"
+  }
+}
