@@ -1,0 +1,139 @@
+version: 1
+plan:
+  name: 'PopChill AI 使用報告修復專案'
+  max_concurrency: 3
+  max_consecutive_failures: 2
+  max_cycles: 8
+  auto_reject_retries: 1
+  verifier_config:
+    default_verifiers: [verifier]
+    audit_sample_rate: 0.0
+tasks:
+  - id: plan-fix
+    title: '讀 AI_USAGE_REPORT.md 並產出修復計畫'
+    prompt: |
+      你是「規劃者」。工作目錄在 C:\ppt-master-main\ppt-master-main。
+
+      目標：讀 AI_USAGE_REPORT.md（projects/popchill_ecommerce_ppt169_20260616/AI_USAGE_REPORT.md），
+      對照專案實際情況，找出所有需要修復/改進的地方，產出一份可執行的修復計畫。
+
+      步驟：
+      1. 完整讀 AI_USAGE_REPORT.md（211 行），理解報告描述的內容、流程、引用、圖片、規格。
+      2. 對照下列專案檔案，檢查報告與實際是否一致：
+         - projects/popchill_ecommerce_ppt169_20260616/spec_lock.md（設計契約）
+         - projects/popchill_ecommerce_ppt169_20260616/design_spec.md
+         - projects/popchill_ecommerce_ppt169_20260616/notes/P*.md（19 張頁面筆記）
+         - projects/popchill_ecommerce_ppt169_20260616/svg_output/P*.svg 與 svg_final/P*.svg
+         - projects/popchill_ecommerce_ppt169_20260616/images/（圖片清單）
+         - projects/popchill_ecommerce_ppt169_20260616/exports/（PPTX 與 manifest）
+         - projects/popchill_ecommerce_ppt169_20260616/sources/popchill_final.md
+      3. 特別關注以下幾類問題：
+         a) 報告中提到的顏色、字型、版面規格，與 spec_lock.md / design_spec.md 是否一致？
+         b) 報告 §六「AI 截圖清單」的圖片，是否真的存在於 images/？檔名/大小是否相符？
+         c) 報告中提到的頁面編號（P20-P24），notes/ 與 svg_output/ 是否有對應內容？
+         d) 報告中引用的學術數據（β、N、p、作者年份），與 sources/popchill_final.md 是否一致？
+         e) 報告 §2.3 的 diff log 範例，與 sources/popchill_final.md 對應章節是否對得上？
+         f) 報告 §5「卡住的部分」提到的 manifest / sidecar，images/image_prompts.json / image_prompts.md 是否齊全？
+         g) 報告 §4.4「排版優化的關鍵」規格（背景 #0F2826 等），是否與 spec_lock.md 一致？
+      4. 寫出一份 FIX_PLAN.md，輸出到：
+         projects/popchill_ecommerce_ppt169_20260616/FIX_PLAN.md
+
+      FIX_PLAN.md 結構：
+      - 一句話總結目前狀態（哪幾類問題、有多少）
+      - 問題清單（編號、嚴重度 high/medium/low、問題描述、影響範圍、建議修復方式、建議修改的檔案）
+      - 修復順序建議（先做哪幾個）
+      - 修復完成後的驗證方式
+
+      嚴格只做規劃，不要動任何專案檔案，不要修改 AI_USAGE_REPORT.md 本身。
+      完成後回報：FIX_PLAN.md 路徑 + 問題清單總數 + 各嚴重度數量。
+    assigned_to: general
+    verified_by: verifier
+    verify_prompt: |
+      你是獨立的審查者。檢查 projects/popchill_ecommerce_ppt169_20260616/FIX_PLAN.md 的品質。
+      1. 規劃 agent 是否真的讀了 AI_USAGE_REPORT.md？（用 read 工具驗證）
+      2. 列出的每個問題，是否有對應的證據（檔案路徑、行號、內容對比）？
+      3. 問題清單是否涵蓋 AI_USAGE_REPORT.md §4.4 顏色定義（背景 #0F2826 / 文字 #F5F1EA）與 spec_lock.md（bg: #F5F1EA）之間的衝突？
+      4. 問題是否涵蓋 AI 截圖清單（§六）的實際檔案存在性與大小？
+      5. 問題是否涵蓋報告引用的學術數據（β、N、作者）與 sources/popchill_final.md 一致性？
+      6. 修復順序是否合理（高嚴重度先做）？
+      7. 是否有遺漏的問題類型？
+      跑必要的 read / grep 命令驗證。給出 PASS / FAIL 結論；FAIL 必須列出缺漏的問題編號與類型。
+    max_retries: 2
+
+  - id: apply-fix
+    title: '根據 FIX_PLAN.md 修復專案'
+    prompt: |
+      你是「修復者」。工作目錄 C:\ppt-master-main\ppt-master-main。
+
+      目標：根據 projects/popchill_ecommerce_ppt169_20260616/FIX_PLAN.md 的修復計畫，實際執行修復。
+
+      步驟：
+      1. 完整讀 FIX_PLAN.md，理解所有問題與建議修復方式。
+      2. 按修復順序（先 high severity）逐項修復，每修一項就記錄：
+         - 改了哪些檔案（絕對路徑）
+         - 修改內容摘要（diff 形式：刪除什麼 / 新增什麼）
+         - 為什麼這樣改（對應 FIX_PLAN.md 的問題編號）
+      3. 修復範圍限制：
+         - 可改：AI_USAGE_REPORT.md、spec_lock.md、design_spec.md、notes/P*.md、images/image_prompts.json、images/image_prompts.md
+         - 可改：svg_output/P*.svg、svg_final/P*.svg（僅文字、規格層面；不要動 SVG 結構）
+         - 不要改：sources/popchill_final.md 的學術內容（除非該文件本身就與報告不一致）
+         - 不要重新跑整套 pptx 匯出管線（finalize_svg / svg_to_pptx）— 只修規格層級
+      4. 修復完成後，產出 FIX_REPORT.md：
+         projects/popchill_ecommerce_ppt169_20260616/FIX_REPORT.md
+         內容：
+         - 修改的檔案清單（路徑 + 修改類型：文字/規格/連結）
+         - 每個修改對應 FIX_PLAN.md 的問題編號
+         - 修改前後對比（如適用）
+         - 任何無法修復或需要用戶裁示的項目
+
+      完成後回報：FIX_REPORT.md 路徑 + 修改檔案數 + 無法修復的項目數。
+    assigned_to: coder
+    depends_on: ['plan-fix']
+    verified_by: verifier
+    verify_prompt: |
+      你是獨立的審查者。檢查修復結果：
+      1. 對照 FIX_PLAN.md 的問題清單，FIX_REPORT.md 是否每項都處理了？
+      2. 實際跑必要的 read / grep 命令，驗證修改真的發生在檔案中：
+         - AI_USAGE_REPORT.md 的顏色/規格段落是否與 spec_lock.md 一致？
+         - image_prompts.json / image_prompts.md 是否補齊？
+         - 報告中引用的學術數據是否與 sources/popchill_final.md 對齊？
+         - 圖片清單（§六）的檔案是否真的存在？
+      3. 是否誤改了不該改的檔案（sources/popchill_final.md 學術內容 / SVG 結構）？
+      4. FIX_REPORT.md 是否記錄清楚每項修改？
+      給出 PASS / FAIL 結論；FAIL 必須列出未修復的問題編號與具體證據。
+    max_retries: 2
+
+  - id: audit-fix
+    title: '最終審查修復結果'
+    prompt: |
+      你是「最終審查者」。工作目錄 C:\ppt-master-main\ppt-master-main。
+
+      目標：獨立、對抗性地審查整個修復流程的結果，給出 PASS / FAIL 最終判決。
+
+      步驟：
+      1. 讀 projects/popchill_ecommerce_ppt169_20260616/AI_USAGE_REPORT.md（最終版本）
+      2. 讀 projects/popchill_ecommerce_ppt169_20260616/FIX_PLAN.md
+      3. 讀 projects/popchill_ecommerce_ppt169_20260616/FIX_REPORT.md
+      4. 重新比對 AI_USAGE_REPORT.md 與專案實際狀態：
+         - 顏色/字型/版面規格 vs spec_lock.md / design_spec.md
+         - 圖片清單 vs images/ 實際檔案
+         - 學術數據 vs sources/popchill_final.md
+         - 頁面編號 vs notes/ / svg_output/ / svg_final/
+         - manifest / sidecar vs images/image_prompts.json / image_prompts.md
+      5. 對照原始問題清單（FIX_PLAN.md）與修復結果（FIX_REPORT.md），檢查：
+         - 是否有遺漏未修的問題
+         - 是否有修錯的問題
+         - 是否有「修復後產生新問題」的情況
+      6. 產出最終審查報告：
+         projects/popchill_ecommerce_ppt169_20260616/AUDIT_REPORT.md
+         內容：
+         - 總評：PASS / PASS WITH NOTES / FAIL
+         - 修復完整度（已修 / 未修 / 部分修 各多少）
+         - 新發現的問題（若有）
+         - 建議下一步動作（release / 再修一輪 / 人工覆核）
+
+      完成後回報：AUDIT_REPORT.md 路徑 + 總評等級 + 新發現問題數。
+    assigned_to: verifier
+    depends_on: ['apply-fix']
+    role: verify-as-task
+    max_retries: 1
