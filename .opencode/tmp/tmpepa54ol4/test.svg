@@ -1,10 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
-<defs>
-<linearGradient id="g1"><stop offset="0"/></linearGradient>
-</defs>
-<g id="bg"><rect width="1280" height="720" fill="#0A0E27"/></g>
-<g id="pillar-perf">
-  <circle cx="160" cy="220" r="32" fill="#0A0E27"/>
-  <use data-icon="phosphor-duotone/gauge" x="136" y="196" width="48" height="48" fill="#3DDDFC"/>
-</g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720"><defs><linearGradient id="g1"><stop offset="0"/></linearGradient></defs><g id="bg"><rect width="1280" height="720" fill="#0A0E27"/></g><g id="pillar-perf"><circle cx="160" cy="220" r="32" fill="#0A0E27"/><use width="48" height="48" x="136" y="196" fill="#3DDDFC" data-icon="phosphor-duotone/gauge"/></g></svg>
